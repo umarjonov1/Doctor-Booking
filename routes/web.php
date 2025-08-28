@@ -25,4 +25,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
-Route::resource('doctor', 'DoctorController');
+Route::group(['middleware' => ['auth', 'admin']], function () {
+    Route::resource('doctor', 'DoctorController');
+});
+
+Route::resource('apppointment', 'AppoinmentController');
