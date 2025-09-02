@@ -18,7 +18,7 @@ class Admin
         if (\Auth::user()->name == 'admin') {
             return $next($request);
         }
-        // if not admin, return 403 or redirect
-        return response()->json(['message' => 'Unauthorized'], 403);
+        // if not admin, return back
+        return redirect()->back();
     }
 }

@@ -12,12 +12,21 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
+{{--    for datapicker--}}
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js" defer></script>
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('template/dist/css/theme.min.css')}}">
+{{--    for datapicker--}}
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+
 </head>
 <body>
     <div id="app">
@@ -76,5 +85,42 @@
             @yield('content')
         </main>
     </div>
+    <script>
+        var dateToday = new Date();
+        $( function() {
+            $("#datepicker").datepicker({
+                dateFormat:"yy-mm-dd",
+                showButtonPanel: true,
+                numberOfMonth: 2,
+                minDate: dateToday,
+            })
+        });
+    </script>
+    <style type="text/css">
+        body {
+            background: #fff;
+        }
+        .ui-corner-all{
+            background: red;
+            color: #fff;
+        }
+        label.btn {
+            padding: 0;
+        }
+        label.btn input {
+            opacity: 0;
+            position: absolute;
+        }
+        label.btn span {
+            text-align: center;
+            padding: 6px 12px;
+            display: block;
+            min-width: 80px;
+        }
+        label.btn input:checked+span{
+            background-color: rgb(80,110,228);
+            color: #fff;
+        }
+    </style>
 </body>
 </html>

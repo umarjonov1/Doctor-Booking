@@ -4,7 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Appoinment extends Model
+class Time extends Model
 {
-    //
+    protected $guarded = [];
+
 }

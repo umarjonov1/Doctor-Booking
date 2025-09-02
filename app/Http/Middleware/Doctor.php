@@ -18,7 +18,7 @@ class Doctor
         if (\Auth::user()->name == 'doctor') {
             return $next($request);
         }
-        // if not doctor, return 403 or redirect
-        return response()->json(['message' => 'Unauthorized as doctor'], 403);
+        // if not admin, return 403 or redirect
+        return redirect()->back();
     }
 }
